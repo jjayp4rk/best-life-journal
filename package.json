@@ -1,0 +1,11 @@
+{
+  "name": "best-life-journal",
+  "version": "1.0.0",
+  "description": "Best life journal",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jay Park",
+  "license": "ISC"
+}
