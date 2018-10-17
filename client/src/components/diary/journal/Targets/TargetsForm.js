@@ -49,6 +49,7 @@ class TargetsForm extends Component {
           type="text"
           name="target"
           className="add-text"
+          autocomplete="off"
           placeholder="Add a new target"
           onChange={this.onChange}
           value={this.state.target}

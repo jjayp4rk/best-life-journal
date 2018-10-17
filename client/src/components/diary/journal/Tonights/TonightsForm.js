@@ -48,6 +48,7 @@ class TonightsForm extends Component {
         <input
           type="text"
           name="tonight"
+          autocomplete="off"
           className="add-text"
           placeholder="Add a new gratitude"
           onChange={this.onChange}
