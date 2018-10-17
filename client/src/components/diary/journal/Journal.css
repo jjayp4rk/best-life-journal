@@ -1,0 +1,136 @@
+.journalEntry {
+  text-align: center;
+  background: #463f3a;
+}
+
+.content {
+  background: #463f3a;
+}
+
+.content .datetitle {
+  text-align: center;
+  padding-top: 35px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 400px;
+  margin-bottom: -15px;
+}
+.content .datetitle span {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.7rem;
+  margin-left: 3px;
+  margin-top: 0.6rem;
+  font-style: italic;
+}
+
+.section-content {
+  margin: 4rem auto;
+  padding: 2rem 3rem 3rem;
+  min-width: 300px;
+  max-width: 500px;
+  background: #ddac9d;
+  color: #f4f3ee;
+  box-shadow: -20px -20px 0px 0px rgba(255, 255, 255, 0.1);
+}
+
+.section-content h1 {
+  font-weight: normal;
+  font-size: 2.6rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.section-content h1 span {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.7rem;
+  margin-left: 3px;
+  margin-top: 0.2rem;
+}
+
+.section-content ul {
+  margin-top: 2.6rem;
+  list-style: none;
+}
+
+.section-content .emptylist {
+  margin-top: 2.6rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.section-content ul li {
+  display: flex;
+  margin-left: -88px;
+  margin-right: -47px;
+  margin-top: 5.5px;
+  padding: 1.1rem 3rem;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.section-content .delete-button {
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.section-content .delete-button:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.add-box {
+  position: relative;
+  left: 50%;
+  top: -35%;
+  transform: translate(-50%, 35%);
+  height: 60px;
+  border-radius: 60px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.add-button {
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 6px;
+  width: 45px;
+  height: 45px;
+  float: left;
+  background: grey;
+  border-radius: 50%;
+  padding-top: 6px;
+  border: solid 1px white;
+  transition: 0.5s;
+  text-decoration: none;
+}
+
+.add-text {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #bcb8b1;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 60px;
+  width: 0px;
+  background: white;
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+.add-box:hover > .add-text {
+  width: 330px;
+  padding: 0 20px;
+}
+
+.add-button:hover {
+  color: #463f3a;
+}

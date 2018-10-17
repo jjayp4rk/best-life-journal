@@ -1,0 +1,20 @@
+.journalitem .button {
+  min-width: 250px;
+  height: 43px;
+  max-width: 300px;
+  border-radius: 20px;
+  margin-top: 12px;
+  padding-top: 6px;
+}
+
+.journalitem a {
+  vertical-align: middle;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.journalitem a:hover {
+  text-decoration: none;
+  outline: none;
+  color: white;
+}

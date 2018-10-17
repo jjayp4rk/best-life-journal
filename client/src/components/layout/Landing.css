@@ -1,0 +1,76 @@
+.content {
+  margin-right: auto;
+  margin-left: auto;
+  height: 90vh;
+}
+
+.signup {
+  text-align: center;
+  padding: 25px;
+  width: 60%;
+  height: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.welcome {
+  position: relative;
+  top: 45%;
+  transform: translateY(-45%);
+  align-content: center;
+}
+
+.welcome h1 {
+  font-size: 45px;
+  font-weight: bold;
+  padding-bottom: 40px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.button {
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 15px;
+  width: 100px;
+  display: inline-block;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #0e402d;
+  background-image: linear-gradient(top, #678918, #0e402d);
+  background-repeat: repeat-x;
+  filter: progid:dximagetransform.microsoft.gradient(
+      startColorstr=#678918,
+      endColorstr=#0E402D,
+      GradientType=0
+    );
+  border: 1px solid #3f540f;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+}
+
+.button:hover,
+.button:active,
+.button.active,
+.button.disabled,
+.button[disabled] {
+  filter: none;
+  background-color: #104933;
+}
+
+.button:hover {
+  color: white;
+  text-decoration: none;
+  background-color: #104933;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.2s linear;
+  transition: background-position 0.2s linear;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}

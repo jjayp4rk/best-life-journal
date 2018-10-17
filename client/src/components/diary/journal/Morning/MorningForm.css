@@ -1,0 +1,17 @@
+.morning {
+  color: white;
+  border: solid 4px green;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.morning input {
+  font-size: 10px;
+  width: 30%;
+}
+
+.morning button {
+  font-size: 10px;
+  width: 30%;
+}

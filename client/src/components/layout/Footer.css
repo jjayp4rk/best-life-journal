@@ -1,0 +1,15 @@
+a {
+  color: white;
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+footer {
+  color: white;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: center;
+  background: #bcb8b1;
+  /* background-color: rgba(67, 95, 40, 0.782); */
+  font-size: 12px;
+}
