@@ -1,8 +1,8 @@
 .loginBox {
   text-align: center;
   padding: 25px;
-  max-width: 300px;
-  width: 60%;
+  max-width: 400px;
+  width: 80%;
   height: 42%;
   margin-left: auto;
   margin-right: auto;
@@ -21,7 +21,8 @@
 }
 
 .inputBox {
-  width: 220px;
+  width: 80%;
+  max-width: 400px;
   margin-bottom: 10px;
   background: rgba(0, 0, 0, 0.3);
   border: none;
@@ -29,16 +30,13 @@
   padding: 10px;
   font-size: 13px;
   color: #fff;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 4px;
-  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2),
-    0 1px 1px rgba(255, 255, 255, 0.2);
   transition: box-shadow 0.5s ease;
 }
 .inputBox:focus {
-  box-shadow: inset 0 -5px 45px rgba(20, 87, 2, 0.3),
-    0 1px 1px rgba(146, 218, 162, 0.5);
+  box-shadow: inset 0 -5px 45px rgba(252, 208, 161, 0.1),
+    0 1px 1px rgba(252, 208, 161, 0.5);
 }
 
 .inputBox::placeholder {

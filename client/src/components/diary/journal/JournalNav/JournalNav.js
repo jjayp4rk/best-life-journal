@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import sun from "../JournalNav/icons/sun.svg";
-import teacher from "../JournalNav/icons/teacher.svg";
-import list from "../JournalNav/icons/list.svg";
-import award from "../JournalNav/icons/award.svg";
-import objective from "../JournalNav/icons/objective.svg";
-import moon from "../JournalNav/icons/moon.svg";
+import sun from '../JournalNav/icons/sun.svg';
+import teacher from '../JournalNav/icons/teacher.svg';
+import list from '../JournalNav/icons/list.svg';
+import award from '../JournalNav/icons/award.svg';
+import objective from '../JournalNav/icons/objective.svg';
+import moon from '../JournalNav/icons/moon.svg';
 
-import "./journalNav.css";
+import './journalNav.css';
 
 const JournalNav = ({ Morning, Goals, Targets, Lessons, Wins, Tonights }) => {
   return (
@@ -16,10 +16,10 @@ const JournalNav = ({ Morning, Goals, Targets, Lessons, Wins, Tonights }) => {
         <img src={sun} alt="" />
       </a>
       <a onClick={Goals} href="">
-        <img src={objective} alt="" />
+        <img src={list} alt="" />
       </a>
       <a onClick={Targets} href="">
-        <img src={list} alt="" />
+        <img src={objective} alt="" />
       </a>
       <a onClick={Lessons} href="">
         <img src={teacher} alt="" />
