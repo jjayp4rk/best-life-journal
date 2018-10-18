@@ -16,12 +16,13 @@ class Diary extends Component {
     };
   }
   componentDidMount() {
+    this.props.postJournal();
     this.props.getJournals();
   }
 
-  onClick = () => {
-    this.props.postJournal();
-  };
+  // onClick = e => {
+  //   this.props.postJournal();
+  // };
 
   leftArrowClick = (e, length) => {
     e.preventDefault();
@@ -41,7 +42,6 @@ class Diary extends Component {
     e.preventDefault();
     let index = this.state.activeIndex;
     let journalLength = length;
-    console.log(length);
     if (index < journalLength) {
       index += 6;
       this.setState({
@@ -75,7 +75,7 @@ class Diary extends Component {
       journalContent = (
         <div>
           <JournalFeed journals={journalChunks} />
-          <div className="addButton">
+          {/* <div className="addButton">
             <a
               href=""
               className="diary-arrow-left"
@@ -93,7 +93,7 @@ class Diary extends Component {
             >
               <i className="fas fa-angle-right fa-2x" />
             </a>
-          </div>
+          </div> */}
         </div>
       );
     }

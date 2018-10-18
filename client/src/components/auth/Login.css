@@ -50,3 +50,7 @@
 .input-error::placeholder {
   color: rgb(251, 202, 246);
 }
+
+.content {
+  height: 90vh;
+}

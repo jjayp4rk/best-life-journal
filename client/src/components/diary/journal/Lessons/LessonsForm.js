@@ -49,7 +49,7 @@ class LessonsForm extends Component {
         <input
           type="text"
           name="lesson"
-          autocomplete="off"
+          autoComplete="off"
           className="add-text"
           placeholder="Add a new lesson"
           onChange={this.onChange}

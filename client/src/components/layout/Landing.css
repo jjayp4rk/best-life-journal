@@ -2,19 +2,20 @@
   margin-right: auto;
   margin-left: auto;
   display: flex;
-  height: 91%;
+  height: 92%;
+  width: 100%;
 }
 
 .signup {
   text-align: center;
   padding: 25px;
   width: 60%;
-  height: 60%;
+  height: 50%;
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 40%;
+  transform: translateY(-40%);
 }
 
 .welcome {
@@ -41,15 +42,14 @@
   padding-top: 5px;
   padding-bottom: 5px;
   background-color: #54493a;
-  background-image: linear-gradient(top, #fcd0a1, #54493a);
+  background-image: linear-gradient(top, #8e6e53, #54493a);
   background-repeat: repeat-x;
   filter: progid:dximagetransform.microsoft.gradient(
-      startColorstr=#FCD0A1,
+      startColorstr=#8E6E53,
       endColorstr=#54493A,
       GradientType=0
     );
-  border: 1px solid white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  border: 1px solid #8e6e53;
   cursor: pointer;
   text-decoration: none;
   outline: none;
@@ -60,14 +60,13 @@
 .button.disabled,
 .button[disabled] {
   filter: none;
-  background-color: #104933;
+  background-color: #5b4635;
 }
 .button:hover {
   color: white;
   text-decoration: none;
-  background-color: #104933;
+  background-color: #5b4635;
   background-position: 0 -15px;
   -webkit-transition: background-position 0.2s linear;
   transition: background-position 0.2s linear;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }

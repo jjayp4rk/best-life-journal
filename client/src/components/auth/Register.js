@@ -6,6 +6,8 @@ import classnames from "classnames";
 import { connect } from "react-redux";
 import { registerUser } from "../../redux/actions/authActions";
 
+import isEmpty from "../../validation/is-empty";
+
 class Register extends Component {
   constructor() {
     super();
@@ -20,6 +22,15 @@ class Register extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
+      if (!isEmpty(nextProps.errors)) {
+        let errorsMessage = "";
+        let errors = Object.values(nextProps.errors);
+        errors.forEach(error => {
+          errorsMessage = errorsMessage + error + "\n";
+        });
+
+        alert(errorsMessage);
+      }
       this.setState({ errors: nextProps.errors });
     }
   }
@@ -31,6 +42,8 @@ class Register extends Component {
   onSubmit = e => {
     e.preventDefault();
 
+    this.setState({ errors: {} });
+
     const newUser = {
       name: this.state.name,
       email: this.state.email,
@@ -39,10 +52,6 @@ class Register extends Component {
     };
 
     this.props.registerUser(newUser, this.props.history);
-    if (this.state.errors) {
-      const errors = Object.values(this.state.errors);
-      alert(errors);
-    }
   };
 
   render() {

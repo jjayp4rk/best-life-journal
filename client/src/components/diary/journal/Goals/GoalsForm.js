@@ -48,7 +48,7 @@ class GoalsForm extends Component {
         <input
           type="text"
           name="goal"
-          autocomplete="off"
+          autoComplete="off"
           className="add-text"
           placeholder="Add a new goal"
           onChange={this.onChange}

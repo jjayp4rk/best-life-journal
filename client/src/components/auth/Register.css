@@ -1,15 +1,15 @@
 .registerationForm {
   text-align: center;
   padding: 25px;
-  min-width: 400px;
+  min-width: 370px;
   max-width: 400px;
   width: 54%;
-  height: 66%;
+  height: 500px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 10%;
+  /* transform: translateY(-60%); */
   box-sizing: border-box;
   text-align: center;
 }

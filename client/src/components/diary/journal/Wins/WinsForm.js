@@ -49,7 +49,7 @@ class WinsForm extends Component {
           type="text"
           name="win"
           className="add-text"
-          autocomplete="off"
+          autoComplete="off"
           placeholder="Add a new win"
           onChange={this.onChange}
           value={this.state.win}

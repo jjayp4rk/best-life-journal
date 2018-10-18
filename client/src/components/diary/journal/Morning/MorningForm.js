@@ -52,7 +52,7 @@ class MorningForm extends Component {
           type="text"
           name="graditude"
           className="add-text"
-          autocomplete="off"
+          autoComplete="off"
           placeholder="Add a new gratitude"
           value={this.state.graditude}
           onChange={this.onChange}

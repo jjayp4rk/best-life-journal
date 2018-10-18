@@ -5,6 +5,8 @@ import { loginUser } from "../../redux/actions/authActions";
 import "./Login.css";
 import classnames from "classnames";
 
+import isEmpty from "../../validation/is-empty";
+
 class Login extends Component {
   constructor() {
     super();
@@ -26,6 +28,15 @@ class Login extends Component {
       this.props.history.push("/journal");
     }
     if (nextProps.errors) {
+      if (!isEmpty(nextProps.errors)) {
+        let errorsMessage = "";
+        let errors = Object.values(nextProps.errors);
+        errors.forEach(error => {
+          errorsMessage = errorsMessage + error + "\n";
+        });
+
+        alert(errorsMessage);
+      }
       this.setState({ errors: nextProps.errors });
     }
   }
