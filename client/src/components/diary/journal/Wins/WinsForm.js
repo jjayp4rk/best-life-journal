@@ -1,32 +1,33 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { addWin } from "../../../../redux/actions/journalActions";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addWin } from '../../../../redux/actions/journalActions';
 
 class WinsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      win: ""
+      win: ''
     };
   }
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onHandleClick = () => {
+  onHandleClick = e => {
+    e.preventDefault();
     const { journalId } = this.props;
     const newWin = {
       win: this.state.win
     };
     this.props.addWin(journalId, newWin);
     this.setState({
-      win: ""
+      win: ''
     });
   };
 
   handleKeyPress = e => {
-    if (e.key === "enter") {
+    if (e.key === 'enter') {
       e.preventDefault();
       const { journalId } = this.props;
       const newWin = {
@@ -34,7 +35,7 @@ class WinsForm extends Component {
       };
       this.props.addWin(journalId, newWin);
       this.setState({
-        win: ""
+        win: ''
       });
     }
   };

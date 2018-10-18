@@ -1,16 +1,18 @@
 .loginBox {
   text-align: center;
+  height: 91vh;
   margin-left: auto;
   margin-right: auto;
-  height: 90.5vh;
+  position: relative;
 }
 
 .log {
-  position: relative;
   text-align: center;
   width: 100%;
-  max-width: 375px;
-  top: 30%;
+  max-width: 375 px;
+  padding: 25px;
+  position: relative;
+  top: 25%;
 }
 
 .loginBox h2 {
@@ -24,7 +26,7 @@
 
 .inputBox {
   width: 80%;
-  max-width: 270px;
+  max-width: 400px;
   margin-bottom: 10px;
   background: rgba(0, 0, 0, 0.3);
   border: none;
@@ -51,4 +53,10 @@
 
 .input-error::placeholder {
   color: rgb(251, 202, 246);
+}
+
+@media screen and (max-width: 400px) {
+  .loginBox {
+    transform: translateY(60%);
+  }
 }

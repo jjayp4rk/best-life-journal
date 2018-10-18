@@ -1,32 +1,33 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { addTarget } from "../../../../redux/actions/journalActions";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addTarget } from '../../../../redux/actions/journalActions';
 
 class TargetsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      target: ""
+      target: ''
     };
   }
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onHandleClick = () => {
+  onHandleClick = e => {
+    e.preventDefault();
     const { journalId } = this.props;
     const newTarget = {
       target: this.state.target
     };
     this.props.addTarget(journalId, newTarget);
     this.setState({
-      target: ""
+      target: ''
     });
   };
 
   handleKeyPress = e => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       e.preventDefault();
       const { journalId } = this.props;
       const newTarget = {
@@ -34,7 +35,7 @@ class TargetsForm extends Component {
       };
       this.props.addTarget(journalId, newTarget);
       this.setState({
-        target: ""
+        target: ''
       });
     }
   };

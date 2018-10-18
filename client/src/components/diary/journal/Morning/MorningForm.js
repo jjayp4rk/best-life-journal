@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { addMorning } from "../../../../redux/actions/journalActions";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addMorning } from '../../../../redux/actions/journalActions';
 
-import "./MorningForm.css";
+import './MorningForm.css';
 
 class MorningForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      graditude: ""
+      graditude: ''
     };
   }
 
@@ -17,19 +17,20 @@ class MorningForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleClick = () => {
+  handleClick = e => {
+    e.preventDefault();
     const { journalId } = this.props;
     const newGraditude = {
       graditude: this.state.graditude
     };
     this.props.addMorning(journalId, newGraditude);
     this.setState({
-      graditude: ""
+      graditude: ''
     });
   };
 
   handleKeyPress = e => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       e.preventDefault();
       const { journalId } = this.props;
       const newGraditude = {
@@ -37,7 +38,7 @@ class MorningForm extends Component {
       };
       this.props.addMorning(journalId, newGraditude);
       this.setState({
-        graditude: ""
+        graditude: ''
       });
     }
   };

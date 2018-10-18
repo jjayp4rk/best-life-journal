@@ -1,32 +1,33 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { addTonight } from "../../../../redux/actions/journalActions";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addTonight } from '../../../../redux/actions/journalActions';
 
 class TonightsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tonight: ""
+      tonight: ''
     };
   }
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onHandleClick = () => {
+  onHandleClick = e => {
+    e.preventDefault();
     const { journalId } = this.props;
     const newTonight = {
       tonight: this.state.tonight
     };
     this.props.addTonight(journalId, newTonight);
     this.setState({
-      tonight: ""
+      tonight: ''
     });
   };
 
   handleKeyPress = e => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       e.preventDefault();
       const { journalId } = this.props;
       const newTonight = {
@@ -34,7 +35,7 @@ class TonightsForm extends Component {
       };
       this.props.addTonight(journalId, newTonight);
       this.setState({
-        tonight: ""
+        tonight: ''
       });
     }
   };
