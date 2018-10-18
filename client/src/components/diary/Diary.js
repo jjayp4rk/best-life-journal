@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getJournals, postJournal } from "../../redux/actions/journalActions";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getJournals, postJournal } from '../../redux/actions/journalActions';
 
-import JournalFeed from "./journalFeed/JournalFeed";
-import Loading from "../functionalComps/Loading";
+import JournalFeed from './journalFeed/JournalFeed';
+import Loading from '../functionalComps/Loading';
 
-import "./Diary.css";
+import './Diary.css';
 
 class Diary extends Component {
   constructor(props) {
@@ -24,35 +24,35 @@ class Diary extends Component {
   //   this.props.postJournal();
   // };
 
-  leftArrowClick = (e, length) => {
-    e.preventDefault();
-    let index = this.state.activeIndex;
-    let journalLength = length;
-    if (index > journalLength || index <= 0) {
-      index = 0;
-    } else {
-      index -= 6;
-    }
-    this.setState({
-      activeIndex: index
-    });
-  };
+  // leftArrowClick = (e, length) => {
+  //   e.preventDefault();
+  //   let index = this.state.activeIndex;
+  //   let journalLength = length;
+  //   if (index > journalLength || index <= 0) {
+  //     index = 0;
+  //   } else {
+  //     index -= 6;
+  //   }
+  //   this.setState({
+  //     activeIndex: index
+  //   });
+  // };
 
-  rightArrowClick = (e, length) => {
-    e.preventDefault();
-    let index = this.state.activeIndex;
-    let journalLength = length;
-    if (index < journalLength) {
-      index += 6;
-      this.setState({
-        activeIndex: index
-      });
-    } else if (index > journalLength) {
-      this.setState({
-        activeIndex: index
-      });
-    }
-  };
+  // rightArrowClick = (e, length) => {
+  //   e.preventDefault();
+  //   let index = this.state.activeIndex;
+  //   let journalLength = length;
+  //   if (index < journalLength) {
+  //     index += 6;
+  //     this.setState({
+  //       activeIndex: index
+  //     });
+  //   } else if (index > journalLength) {
+  //     this.setState({
+  //       activeIndex: index
+  //     });
+  //   }
+  // };
 
   render() {
     const { journals, loading } = this.props.journal;

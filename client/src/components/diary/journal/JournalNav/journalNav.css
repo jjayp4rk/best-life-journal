@@ -1,7 +1,7 @@
 .journal-nav-bar {
   color: white;
   width: 50%;
-  min-width: 360px;
+  min-width: 250px;
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
@@ -9,6 +9,7 @@
   padding-bottom: 8px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
 }
 
 .journal-nav-bar a {
