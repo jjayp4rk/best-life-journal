@@ -179,19 +179,21 @@ class Journal extends Component {
 
     return (
       <div className="content">
-        <h1 className="datetitle">
-          <Moment format="dddd, MMMM Do YYYY">{journal.date}</Moment>
-          <span>{`${text} - ${author}`}</span>
-        </h1>
-        <JournalNav
-          Morning={this.showMorning}
-          Goals={this.showGoals}
-          Targets={this.showTargets}
-          Lessons={this.showLessons}
-          Wins={this.showWins}
-          Tonights={this.showTonights}
-        />
-        {journalContent}
+        <div className="journal">
+          <h1 className="datetitle">
+            <Moment format="dddd, MMMM Do YYYY">{journal.date}</Moment>
+            <span>{`${text} - ${author}`}</span>
+          </h1>
+          <JournalNav
+            Morning={this.showMorning}
+            Goals={this.showGoals}
+            Targets={this.showTargets}
+            Lessons={this.showLessons}
+            Wins={this.showWins}
+            Tonights={this.showTonights}
+          />
+          {journalContent}
+        </div>
       </div>
     );
   }

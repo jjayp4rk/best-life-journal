@@ -1,3 +1,7 @@
+.journal {
+  height: 92vh;
+}
+
 .journalEntry {
   text-align: center;
 }
@@ -141,5 +145,8 @@
   }
   .section-content {
     box-shadow: 0;
+  }
+  .journal {
+    height: 100%;
   }
 }

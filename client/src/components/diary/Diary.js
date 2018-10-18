@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { getJournals, postJournal } from '../../redux/actions/journalActions';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getJournals, postJournal } from "../../redux/actions/journalActions";
 
-import JournalFeed from './journalFeed/JournalFeed';
-import Loading from '../functionalComps/Loading';
+import JournalFeed from "./journalFeed/JournalFeed";
+import Loading from "../functionalComps/Loading";
 
-import './Diary.css';
+import "./Diary.css";
 
 class Diary extends Component {
   constructor(props) {
