@@ -1,38 +1,38 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { loginUser } from '../../redux/actions/authActions';
-import './Login.css';
-import classnames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../../redux/actions/authActions";
+import "./Login.css";
+import classnames from "classnames";
 
-import isEmpty from '../../validation/is-empty';
+import isEmpty from "../../validation/is-empty";
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       errors: {}
     };
   }
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/journal');
+      this.props.history.push("/journal");
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/journal');
+      this.props.history.push("/journal");
     }
     if (nextProps.errors) {
       if (!isEmpty(nextProps.errors)) {
-        let errorsMessage = '';
+        let errorsMessage = "";
         let errors = Object.values(nextProps.errors);
         errors.forEach(error => {
-          errorsMessage = errorsMessage + error + '\n';
+          errorsMessage = errorsMessage + error + "\n";
         });
 
         alert(errorsMessage);
@@ -56,7 +56,7 @@ class Login extends Component {
   };
 
   onSubmitEnter = e => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       const userData = {
         email: this.state.email,
         password: this.state.password
@@ -79,20 +79,20 @@ class Login extends Component {
                 name="email"
                 value={this.state.email}
                 onChange={this.onChange}
-                className={classnames('inputBox', {
-                  'input-error': errors.email
+                className={classnames("inputBox", {
+                  "input-error": errors.email
                 })}
-                placeholder={errors.email ? errors.email : 'Username/Email'}
+                placeholder={errors.email ? errors.email : "Username/Email"}
               />
               <input
                 type="password"
                 name="password"
                 value={this.state.password}
                 onChange={this.onChange}
-                className={classnames('inputBox', {
-                  'input-error': errors.password
+                className={classnames("inputBox", {
+                  "input-error": errors.password
                 })}
-                placeholder={errors.password ? errors.password : 'Password'}
+                placeholder={errors.password ? errors.password : "Password"}
               />
               <input className="button" type="submit" value="Login" />
             </form>
