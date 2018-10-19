@@ -43,9 +43,10 @@ class TargetsForm extends Component {
   render() {
     return (
       <div className="add-box">
-        <a href="" onClick={this.onHandleClick} className="add-button">
-          <i className="fas fa-plus fa-2x" />
-        </a>
+        <button onClick={this.onHandleClick} className="add-slider">
+          ADD
+          <i className="fas fa-plus fa-1x" />
+        </button>
         <input
           type="text"
           name="target"

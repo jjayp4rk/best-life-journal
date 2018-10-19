@@ -45,12 +45,16 @@ class GoalsForm extends Component {
   render() {
     return (
       <div className="add-box">
-        <textarea
+        <button onClick={this.onHandleClick} className="add-slider">
+          ADD
+          <i className="fas fa-plus fa-1x" />
+        </button>
+        <input
           type="text"
           name="goal"
           autoComplete="off"
           className="add-text"
-          placeholder="Add a new goal"
+          placeholder=""
           onChange={this.onChange}
           value={this.state.goal}
           onKeyPress={this.handleKeyPress}

@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { addLesson } from "../../../../redux/actions/journalActions";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addLesson } from '../../../../redux/actions/journalActions';
 
 class LessonsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lesson: ""
+      lesson: ''
     };
   }
   onChange = e => {
@@ -22,12 +22,12 @@ class LessonsForm extends Component {
     };
     this.props.addLesson(journalId, newLesson);
     this.setState({
-      lesson: ""
+      lesson: ''
     });
   };
 
   handleKeyPress = e => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       e.preventDefault();
       const { journalId } = this.props;
       const newLesson = {
@@ -35,7 +35,7 @@ class LessonsForm extends Component {
       };
       this.props.addLesson(journalId, newLesson);
       this.setState({
-        lesson: ""
+        lesson: ''
       });
     }
   };
@@ -43,9 +43,10 @@ class LessonsForm extends Component {
   render() {
     return (
       <div className="add-box">
-        <a href="" onClick={this.onHandleClick} className="add-button">
-          <i className="fas fa-plus fa-2x" />
-        </a>
+        <button onClick={this.onHandleClick} className="add-slider">
+          ADD
+          <i className="fas fa-plus fa-1x" />
+        </button>
         <input
           type="text"
           name="lesson"

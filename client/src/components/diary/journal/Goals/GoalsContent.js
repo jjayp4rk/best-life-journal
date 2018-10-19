@@ -1,8 +1,6 @@
-import React, { Component } from "react";
-import "./GoalsContent.css";
-import PropTypes from "prop-types";
-import "./GoalItem";
-import GoalItem from "./GoalItem";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import GoalItem from './GoalItem';
 
 class GoalsContent extends Component {
   render() {

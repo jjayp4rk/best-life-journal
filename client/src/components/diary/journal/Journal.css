@@ -90,37 +90,59 @@
 
 /* Input box */
 .add-box {
-  position: relative;
-  left: 50%;
-  top: -35%;
-  transform: translate(-50%, 35%);
   padding: 0;
-  background: #7b886f;
-  border: 1px solid #7b886f;
-  border-radius: 15px;
-  width: 60%;
-  height: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  max-width: 300px;
+  width: 40%;
+  min-width: 250px;
+  height: 40px;
 }
 
-.add-box .add-text {
-  opacity: 0;
-  width: 80%;
-  padding-top: 4.5px;
-  background: black;
-  border: none;
+.add-slider {
+  width: 100%;
+  height: 40px;
+  background: #453823;
   color: white;
+  font-weight: bold;
+  display: flex;
+  float: right;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  outline: none;
+  border: none;
+  border-radius: 2px;
   transition: all 0.4s ease-in-out 0s;
 }
 
-.add-box:hover .add-text,
-.add-box.active {
-  opacity: 1;
+.add-slider i {
+  height: 30px;
+  width: 30px;
+  color: white;
+  padding-top: 6.6px;
 }
 
-.add-text:focus {
-  opacity: 1;
+.add-box:hover > .add-text {
+  width: 75%;
+  padding: 0 6px;
+  height: 100%;
+}
+
+.add-box:hover > .add-slider {
+  width: 25%;
+}
+
+.add-text {
+  border: none;
+  background: white;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: black;
+  width: 0px;
+  height: 100%;
+  transition: all 0.4s ease-in-out 0s;
 }
 
 .add-text::placeholder {

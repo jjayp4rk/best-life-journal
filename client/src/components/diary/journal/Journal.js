@@ -1,32 +1,32 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { getJournal, addMorning } from "../../../redux/actions/journalActions";
-import Moment from "react-moment";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getJournal, addMorning } from '../../../redux/actions/journalActions';
+import Moment from 'react-moment';
 
-import "./Journal.css";
+import './Journal.css';
 
-import Loading from "../../functionalComps/Loading";
-import MorningForm from "./Morning/MorningForm";
-import MorningContent from "./Morning/MorningContent";
-import GoalsForm from "./Goals/GoalsForm";
-import GoalsContent from "./Goals/GoalsContent";
-import TargetsForm from "./Targets/TargetsForm";
-import TargetsContent from "./Targets/TargetsContent";
-import LessonsForm from "./Lessons/LessonsForm";
-import LessonsContent from "./Lessons/LessonsContent";
-import WinsForm from "./Wins/WinsForm";
-import WinsContent from "./Wins/WinsContent";
-import TonightsForm from "./Tonights/TonightsForm";
-import TonightsContent from "./Tonights/TonightsContent";
+import Loading from '../../functionalComps/Loading';
+import MorningForm from './Morning/MorningForm';
+import MorningContent from './Morning/MorningContent';
+import GoalsForm from './Goals/GoalsForm';
+import GoalsContent from './Goals/GoalsContent';
+import TargetsForm from './Targets/TargetsForm';
+import TargetsContent from './Targets/TargetsContent';
+import LessonsForm from './Lessons/LessonsForm';
+import LessonsContent from './Lessons/LessonsContent';
+import WinsForm from './Wins/WinsForm';
+import WinsContent from './Wins/WinsContent';
+import TonightsForm from './Tonights/TonightsForm';
+import TonightsContent from './Tonights/TonightsContent';
 
-import JournalNav from "./JournalNav/JournalNav";
+import JournalNav from './JournalNav/JournalNav';
 
 class Journal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: "Morning"
+      view: 'Morning'
     };
   }
 
@@ -36,32 +36,32 @@ class Journal extends Component {
 
   showMorning = e => {
     e.preventDefault();
-    this.setState({ view: "Morning" });
+    this.setState({ view: 'Morning' });
   };
 
   showGoals = e => {
     e.preventDefault();
-    this.setState({ view: "Goals" });
+    this.setState({ view: 'Goals' });
   };
 
   showTargets = e => {
     e.preventDefault();
-    this.setState({ view: "Targets" });
+    this.setState({ view: 'Targets' });
   };
 
   showLessons = e => {
     e.preventDefault();
-    this.setState({ view: "Lessons" });
+    this.setState({ view: 'Lessons' });
   };
 
   showWins = e => {
     e.preventDefault();
-    this.setState({ view: "Wins" });
+    this.setState({ view: 'Wins' });
   };
 
   showTonights = e => {
     e.preventDefault();
-    this.setState({ view: "Tonights" });
+    this.setState({ view: 'Tonights' });
   };
 
   render() {
@@ -84,7 +84,7 @@ class Journal extends Component {
       text = quote[0];
       author = quote[1];
 
-      if (this.state.view === "Morning") {
+      if (this.state.view === 'Morning') {
         journalContent = (
           <div className="journalEntry">
             <div className="section-content">
@@ -100,7 +100,7 @@ class Journal extends Component {
             </div>
           </div>
         );
-      } else if (this.state.view === "Goals") {
+      } else if (this.state.view === 'Goals') {
         journalContent = (
           <div className="journalEntry">
             <div className="section-content">
@@ -113,7 +113,7 @@ class Journal extends Component {
             </div>
           </div>
         );
-      } else if (this.state.view === "Targets") {
+      } else if (this.state.view === 'Targets') {
         journalContent = (
           <div className="journalEntry">
             <div className="section-content">
@@ -129,7 +129,7 @@ class Journal extends Component {
             </div>
           </div>
         );
-      } else if (this.state.view === "Lessons") {
+      } else if (this.state.view === 'Lessons') {
         journalContent = (
           <div className="journalEntry">
             <div className="section-content">
@@ -145,7 +145,7 @@ class Journal extends Component {
             </div>
           </div>
         );
-      } else if (this.state.view === "Wins") {
+      } else if (this.state.view === 'Wins') {
         journalContent = (
           <div className="journalEntry">
             <div className="section-content">
@@ -158,7 +158,7 @@ class Journal extends Component {
             </div>
           </div>
         );
-      } else if (this.state.view === "Tonights") {
+      } else if (this.state.view === 'Tonights') {
         journalContent = (
           <div className="journalEntry">
             <div className="section-content">
