@@ -54,9 +54,3 @@
 .input-error::placeholder {
   color: rgb(251, 202, 246);
 }
-
-@media screen and (max-width: 400px) {
-  .loginBox {
-    transform: translateY(60%);
-  }
-}
