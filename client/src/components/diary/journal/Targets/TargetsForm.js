@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { addTarget } from '../../../../redux/actions/journalActions';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { addTarget } from "../../../../redux/actions/journalActions";
 
 class TargetsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      target: ''
+      target: ""
     };
   }
   onChange = e => {
@@ -22,12 +22,12 @@ class TargetsForm extends Component {
     };
     this.props.addTarget(journalId, newTarget);
     this.setState({
-      target: ''
+      target: ""
     });
   };
 
   handleKeyPress = e => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       e.preventDefault();
       const { journalId } = this.props;
       const newTarget = {
@@ -35,28 +35,32 @@ class TargetsForm extends Component {
       };
       this.props.addTarget(journalId, newTarget);
       this.setState({
-        target: ''
+        target: ""
       });
     }
   };
 
   render() {
     return (
-      <div className="add-box">
-        <button onClick={this.onHandleClick} className="add-slider">
-          ADD
-          <i className="fas fa-plus fa-1x" />
-        </button>
-        <input
-          type="text"
-          name="target"
-          className="add-text"
-          autoComplete="off"
-          placeholder="Add a new target"
-          onChange={this.onChange}
-          value={this.state.target}
-          onKeyPress={this.handleKeyPress}
-        />
+      <div>
+        {this.props.targets.length < 3 ? (
+          <div className="add-box">
+            <button onClick={this.onHandleClick} className="add-slider">
+              ADD
+              <i className="fas fa-plus fa-1x" />
+            </button>
+            <input
+              type="text"
+              name="target"
+              className="add-text"
+              autoComplete="off"
+              placeholder="Add a new target"
+              onChange={this.onChange}
+              value={this.state.target}
+              onKeyPress={this.handleKeyPress}
+            />
+          </div>
+        ) : null}
       </div>
     );
   }

@@ -109,7 +109,7 @@ class Journal extends Component {
                 <span>What are your goals for today?</span>
               </h1>
               <GoalsContent goals={journal.goals} journalId={journal._id} />
-              <GoalsForm journalId={journal._id} />
+              <GoalsForm goals={journal.goals} journalId={journal._id} />
             </div>
           </div>
         );
@@ -125,7 +125,7 @@ class Journal extends Component {
                 targets={journal.targets}
                 journalId={journal._id}
               />
-              <TargetsForm journalId={journal._id} />
+              <TargetsForm targets={journal.targets} journalId={journal._id} />
             </div>
           </div>
         );
@@ -141,7 +141,7 @@ class Journal extends Component {
                 lessons={journal.lessons}
                 journalId={journal._id}
               />
-              <LessonsForm journalId={journal._id} />
+              <LessonsForm lessons={journal.lessons} journalId={journal._id} />
             </div>
           </div>
         );
@@ -154,7 +154,7 @@ class Journal extends Component {
                 <span>What did you accomplish today?</span>
               </h1>
               <WinsContent wins={journal.wins} journalId={journal._id} />
-              <WinsForm journalId={journal._id} />
+              <WinsForm wins={journal.wins} journalId={journal._id} />
             </div>
           </div>
         );
@@ -163,14 +163,17 @@ class Journal extends Component {
           <div className="journalEntry">
             <div className="section-content">
               <h1>
-                Tonights Gratitudes
+                Evening Gratitudes
                 <span>What are you grateful for this evening?</span>
               </h1>
               <TonightsContent
                 tonights={journal.tonights}
                 journalId={journal._id}
               />
-              <TonightsForm journalId={journal._id} />
+              <TonightsForm
+                tonights={journal.tonights}
+                journalId={journal._id}
+              />
             </div>
           </div>
         );

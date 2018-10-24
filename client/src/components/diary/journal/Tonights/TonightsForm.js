@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { addTonight } from '../../../../redux/actions/journalActions';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { addTonight } from "../../../../redux/actions/journalActions";
 
 class TonightsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tonight: ''
+      tonight: ""
     };
   }
   onChange = e => {
@@ -22,12 +22,12 @@ class TonightsForm extends Component {
     };
     this.props.addTonight(journalId, newTonight);
     this.setState({
-      tonight: ''
+      tonight: ""
     });
   };
 
   handleKeyPress = e => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       e.preventDefault();
       const { journalId } = this.props;
       const newTonight = {
@@ -35,28 +35,32 @@ class TonightsForm extends Component {
       };
       this.props.addTonight(journalId, newTonight);
       this.setState({
-        tonight: ''
+        tonight: ""
       });
     }
   };
 
   render() {
     return (
-      <div className="add-box">
-        <button onClick={this.onHandleClick} className="add-slider">
-          ADD
-          <i className="fas fa-plus fa-1x" />
-        </button>
-        <input
-          type="text"
-          name="tonight"
-          autoComplete="off"
-          className="add-text"
-          placeholder="Add a new gratitude"
-          onChange={this.onChange}
-          value={this.state.tonight}
-          onKeyPress={this.handleKeyPress}
-        />
+      <div>
+        {this.props.tonights.length < 3 ? (
+          <div className="add-box">
+            <button onClick={this.onHandleClick} className="add-slider">
+              ADD
+              <i className="fas fa-plus fa-1x" />
+            </button>
+            <input
+              type="text"
+              name="tonight"
+              autoComplete="off"
+              className="add-text"
+              placeholder="Add a new gratitude"
+              onChange={this.onChange}
+              value={this.state.tonight}
+              onKeyPress={this.handleKeyPress}
+            />
+          </div>
+        ) : null}
       </div>
     );
   }

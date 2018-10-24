@@ -133,7 +133,7 @@ router.post(
     Journal.findById(req.params.id)
       .then(journal => {
         const newGoal = { goal: req.body.goal };
-        if (journal.goals.length < 5) {
+        if (journal.goals.length < 3) {
           journal.goals.unshift(newGoal);
           journal.save().then(journal => res.json(journal));
           console.log("gucci!");
@@ -274,7 +274,7 @@ router.post(
     Journal.findById(req.params.id)
       .then(journal => {
         const newWin = { win: req.body.win };
-        if (journal.wins.length < 2) {
+        if (journal.wins.length < 3) {
           journal.wins.unshift(newWin);
           journal.save().then(journal => res.json(journal));
           console.log("gucci!");
@@ -320,7 +320,7 @@ router.post(
     Journal.findById(req.params.id)
       .then(journal => {
         const newTonight = { tonight: req.body.tonight };
-        if (journal.tonights.length < 2) {
+        if (journal.tonights.length < 3) {
           journal.tonights.unshift(newTonight);
           journal.save().then(journal => res.json(journal));
           console.log("gucci!");

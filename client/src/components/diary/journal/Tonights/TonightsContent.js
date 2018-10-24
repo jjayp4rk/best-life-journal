@@ -10,7 +10,7 @@ class TonightsContent extends Component {
       <div>
         {tonights.length === 0 ? (
           <ul className="emptylist">
-            <li>Tonights gratitudes is empty</li>
+            <li>Evening gratitudes is empty</li>
           </ul>
         ) : (
           <ul>
