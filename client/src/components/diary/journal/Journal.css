@@ -101,7 +101,7 @@
 }
 
 .add-slider {
-  width: 100%;
+  width: 25%;
   height: 40px;
   background: #453823;
   color: white;
@@ -113,7 +113,7 @@
   text-decoration: none;
   border: none;
   border-radius: 2px;
-  transition: all 0.4s ease-in-out 0s;
+  /* transition: all 0.4s ease-in-out 0s; */
 }
 
 .add-slider i {
@@ -123,7 +123,7 @@
   padding-top: 6.6px;
 }
 
-.add-box:hover > .add-text {
+/* .add-box:hover > .add-text {
   width: 75%;
   padding: 0 6px;
   height: 100%;
@@ -131,16 +131,16 @@
 
 .add-box:hover > .add-slider {
   width: 25%;
-}
+} */
 
 .add-text {
   border: none;
   background: white;
   outline: none;
   float: left;
-  padding: 0;
+  padding: 0 6px;
   color: black;
-  width: 0px;
+  width: 75%;
   height: 100%;
   transition: all 0.4s ease-in-out 0s;
 }

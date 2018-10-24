@@ -28,15 +28,6 @@ class Login extends Component {
       this.props.history.push("/journal");
     }
     if (nextProps.errors) {
-      if (!isEmpty(nextProps.errors)) {
-        let errorsMessage = "";
-        let errors = Object.values(nextProps.errors);
-        errors.forEach(error => {
-          errorsMessage = errorsMessage + error + "\n";
-        });
-
-        alert(errorsMessage);
-      }
       this.setState({ errors: nextProps.errors });
     }
   }
