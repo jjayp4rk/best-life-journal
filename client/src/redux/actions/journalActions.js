@@ -2,6 +2,7 @@ import axios from "axios";
 
 import {
   GET_ERRORS,
+  CLEAR_ERRORS,
   GET_JOURNALS,
   POST_JOURNAL,
   GET_JOURNAL,
@@ -61,6 +62,7 @@ export const postJournal = () => dispatch => {
 // Add graditude
 
 export const addMorning = (journalId, morningData) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post(`/api/journals/morning/${journalId}`, morningData)
     .then(res =>
@@ -69,7 +71,12 @@ export const addMorning = (journalId, morningData) => dispatch => {
         payload: res.data
       })
     )
-    .catch(err => console.log(err));
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
 };
 
 // Delete graditude
@@ -93,6 +100,7 @@ export const deleteMorning = (journalId, morningId) => dispatch => {
 // Add goal
 
 export const addGoal = (journalId, goal) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post(`/api/journals/goals/${journalId}`, goal)
     .then(res =>
@@ -130,6 +138,7 @@ export const deleteGoal = (journalId, goalId) => dispatch => {
 // Add target
 
 export const addTarget = (journalId, target) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post(`/api/journals/targets/${journalId}`, target)
     .then(res =>
@@ -167,6 +176,7 @@ export const deleteTarget = (journalId, targetId) => dispatch => {
 // Add lesson
 
 export const addLesson = (journalId, lesson) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post(`/api/journals/lessons/${journalId}`, lesson)
     .then(res =>
@@ -204,6 +214,7 @@ export const deleteLesson = (journalId, lessonId) => dispatch => {
 // Add win
 
 export const addWin = (journalId, win) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post(`/api/journals/wins/${journalId}`, win)
     .then(res =>
@@ -241,6 +252,7 @@ export const deleteWin = (journalId, winId) => dispatch => {
 // Add tonight
 
 export const addTonight = (journalId, tonight) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post(`/api/journals/tonights/${journalId}`, tonight)
     .then(res =>
@@ -279,5 +291,12 @@ export const deleteTonight = (journalId, tonightId) => dispatch => {
 export const setJournalLoading = () => {
   return {
     type: JOURNAL_LOADING
+  };
+};
+
+// Clear errors
+export const clearErrors = () => {
+  return {
+    type: CLEAR_ERRORS
   };
 };

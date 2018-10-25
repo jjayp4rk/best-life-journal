@@ -6,6 +6,9 @@ const moment = require("moment");
 // Load post model
 const Journal = require("../../models/Journal");
 
+// Load journal entry validator
+const validateJournalInput = require("../../validation/journal");
+
 // Load quotes json
 const quotes = require("../quotes.json");
 
@@ -81,13 +84,19 @@ router.post(
   "/morning/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    const { errors, isValid } = validateJournalInput(req.body);
+    // Check Validation
+    if (!isValid) {
+      // If any errors, send 400 with errors object
+      return res.status(400).json(errors);
+    }
     Journal.findById(req.params.id)
       .then(journal => {
         const newGraditude = { graditude: req.body.graditude };
         if (journal.morning.length < 3) {
           journal.morning.unshift(newGraditude);
           journal.save().then(journal => res.json(journal));
-          console.log("gucci!");
+          console.log("Successfully added morning graditude.");
         } else {
           return res.json(journal);
         }
@@ -132,11 +141,17 @@ router.post(
   (req, res) => {
     Journal.findById(req.params.id)
       .then(journal => {
+        const { errors, isValid } = validateJournalInput(req.body);
+        // Check Validation
+        if (!isValid) {
+          // If any errors, send 400 with errors object
+          return res.status(400).json(errors);
+        }
         const newGoal = { goal: req.body.goal };
         if (journal.goals.length < 3) {
           journal.goals.unshift(newGoal);
           journal.save().then(journal => res.json(journal));
-          console.log("gucci!");
+          console.log("Successfully added goal.");
         } else {
           return res.json(journal);
         }
@@ -179,11 +194,17 @@ router.post(
   (req, res) => {
     Journal.findById(req.params.id)
       .then(journal => {
+        const { errors, isValid } = validateJournalInput(req.body);
+        // Check Validation
+        if (!isValid) {
+          // If any errors, send 400 with errors object
+          return res.status(400).json(errors);
+        }
         const newTarget = { target: req.body.target };
         if (journal.targets.length < 3) {
           journal.targets.unshift(newTarget);
           journal.save().then(journal => res.json(journal));
-          console.log("gucci!");
+          console.log("Successfully added target.");
         } else {
           return res.json(journal);
         }
@@ -226,11 +247,17 @@ router.post(
   (req, res) => {
     Journal.findById(req.params.id)
       .then(journal => {
+        const { errors, isValid } = validateJournalInput(req.body);
+        // Check Validation
+        if (!isValid) {
+          // If any errors, send 400 with errors object
+          return res.status(400).json(errors);
+        }
         const newLesson = { lesson: req.body.lesson };
         if (journal.lessons.length < 3) {
           journal.lessons.unshift(newLesson);
           journal.save().then(journal => res.json(journal));
-          console.log("gucci!");
+          console.log("Successfully added lesson.");
         } else {
           return res.json(journal);
         }
@@ -271,13 +298,19 @@ router.post(
   "/wins/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    const { errors, isValid } = validateJournalInput(req.body);
+    // Check Validation
+    if (!isValid) {
+      // If any errors, send 400 with errors object
+      return res.status(400).json(errors);
+    }
     Journal.findById(req.params.id)
       .then(journal => {
         const newWin = { win: req.body.win };
         if (journal.wins.length < 3) {
           journal.wins.unshift(newWin);
           journal.save().then(journal => res.json(journal));
-          console.log("gucci!");
+          console.log("Successfully added win.");
         } else {
           return res.json(journal);
         }
@@ -319,11 +352,17 @@ router.post(
   (req, res) => {
     Journal.findById(req.params.id)
       .then(journal => {
+        const { errors, isValid } = validateJournalInput(req.body);
+        // Check Validation
+        if (!isValid) {
+          // If any errors, send 400 with errors object
+          return res.status(400).json(errors);
+        }
         const newTonight = { tonight: req.body.tonight };
         if (journal.tonights.length < 3) {
           journal.tonights.unshift(newTonight);
           journal.save().then(journal => res.json(journal));
-          console.log("gucci!");
+          console.log("Successfully added evening graditude.");
         } else {
           return res.json(journal);
         }

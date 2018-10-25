@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 import { addMorning } from "../../../../redux/actions/journalActions";
 
 import "./MorningForm.css";
@@ -9,8 +10,15 @@ class MorningForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      graditude: ""
+      graditude: "",
+      errors: {}
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
   }
 
   onChange = e => {
@@ -44,6 +52,7 @@ class MorningForm extends Component {
   };
 
   render() {
+    const { errors } = this.state;
     return (
       <div>
         {this.props.morning.length < 3 ? (
@@ -55,9 +64,13 @@ class MorningForm extends Component {
             <input
               type="text"
               name="graditude"
-              className="add-text"
+              className={classnames("add-text", {
+                "add-text add-text-error": errors.text
+              })}
               autoComplete="off"
-              placeholder="Add a new gratitude"
+              placeholder={
+                errors.text ? String(errors.text) : "Add a morning graditude"
+              }
               value={this.state.graditude}
               onChange={this.onChange}
               onKeyPress={this.handleKeyPress}
@@ -90,7 +103,11 @@ MorningForm.propTypes = {
   journalId: PropTypes.string.isRequired
 };
 
+const mapStateToProps = state => ({
+  errors: state.errors
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { addMorning }
 )(MorningForm);

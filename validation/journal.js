@@ -3,15 +3,16 @@ const isEmpty = require("./is-empty");
 module.exports = function validateJournalInput(data) {
   let errors = {};
   // Uses custom middleware function to check backend
+  let inputName = Object.values(data)[0];
 
-  data.text = !isEmpty(data.text) ? data.text : "";
+  inputName = !isEmpty(inputName) ? inputName : "";
 
   // Front end validation
-  if (!Validator.isLength(data.text, { min: 10, max: 300 })) {
+  if (!Validator.isLength(inputName, { min: 10, max: 300 })) {
     errors.text = "Must between 10 and 300 characters";
   }
 
-  if (Validator.isEmpty(data.text)) {
+  if (Validator.isEmpty(inputName)) {
     errors.text = "Text field is required";
   }
 

@@ -6,8 +6,6 @@ import classnames from "classnames";
 import { connect } from "react-redux";
 import { registerUser } from "../../redux/actions/authActions";
 
-import isEmpty from "../../validation/is-empty";
-
 class Register extends Component {
   constructor() {
     super();
