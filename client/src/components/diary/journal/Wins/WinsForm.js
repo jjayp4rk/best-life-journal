@@ -2,14 +2,23 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addWin } from "../../../../redux/actions/journalActions";
+import classnames from "classnames";
 
 class WinsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      win: ""
+      win: "",
+      errors: {}
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -41,6 +50,7 @@ class WinsForm extends Component {
   };
 
   render() {
+    const { errors } = this.state;
     return (
       <div>
         {this.props.wins.length < 3 ? (
@@ -52,9 +62,11 @@ class WinsForm extends Component {
             <input
               type="text"
               name="win"
-              className="add-text"
+              className={classnames("add-text", {
+                "add-text add-text-error": errors.text
+              })}
               autoComplete="off"
-              placeholder="Add a new win"
+              placeholder={errors.text ? String(errors.text) : "Add a win"}
               onChange={this.onChange}
               value={this.state.win}
               onKeyPress={this.handleKeyPress}
@@ -71,7 +83,7 @@ WinsForm.propTypes = {
   journalId: PropTypes.string.isRequired
 };
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({ errors: state.errors });
 
 export default connect(
   mapStateToProps,

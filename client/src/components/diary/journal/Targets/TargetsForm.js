@@ -2,14 +2,23 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addTarget } from "../../../../redux/actions/journalActions";
+import classnames from "classnames";
 
 class TargetsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      target: ""
+      target: "",
+      errors: {}
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -41,6 +50,7 @@ class TargetsForm extends Component {
   };
 
   render() {
+    const { errors } = this.state;
     return (
       <div>
         {this.props.targets.length < 3 ? (
@@ -52,9 +62,11 @@ class TargetsForm extends Component {
             <input
               type="text"
               name="target"
-              className="add-text"
+              className={classnames("add-text", {
+                "add-text add-text-error": errors.text
+              })}
               autoComplete="off"
-              placeholder="Add a new target"
+              placeholder={errors.text ? String(errors.text) : "Add a target"}
               onChange={this.onChange}
               value={this.state.target}
               onKeyPress={this.handleKeyPress}
@@ -71,7 +83,7 @@ TargetsForm.propTypes = {
   journalId: PropTypes.string.isRequired
 };
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({ errors: state.errors });
 
 export default connect(
   mapStateToProps,

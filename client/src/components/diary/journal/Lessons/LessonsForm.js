@@ -2,14 +2,23 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addLesson } from "../../../../redux/actions/journalActions";
+import classnames from "classnames";
 
 class LessonsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lesson: ""
+      lesson: "",
+      errors: {}
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -41,6 +50,7 @@ class LessonsForm extends Component {
   };
 
   render() {
+    const { errors } = this.state;
     return (
       <div>
         {this.props.lessons.length < 3 ? (
@@ -53,8 +63,10 @@ class LessonsForm extends Component {
               type="text"
               name="lesson"
               autoComplete="off"
-              className="add-text"
-              placeholder="Add a new lesson"
+              className={classnames("add-text", {
+                "add-text add-text-error": errors.text
+              })}
+              placeholder={errors.text ? String(errors.text) : "Add a lesson"}
               onChange={this.onChange}
               value={this.state.lesson}
               onKeyPress={this.handleKeyPress}
@@ -71,7 +83,9 @@ LessonsForm.propTypes = {
   journalId: PropTypes.string.isRequired
 };
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  errors: state.errors
+});
 
 export default connect(
   mapStateToProps,

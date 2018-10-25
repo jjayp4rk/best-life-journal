@@ -79,22 +79,6 @@ class MorningForm extends Component {
         ) : null}
       </div>
     );
-    // <div className="add-box">
-    //   <button onClick={this.onHandleClick} className="add-slider">
-    //     ADD
-    //     <i className="fas fa-plus fa-1x" />
-    //   </button>
-    //   <input
-    //     type="text"
-    //     name="graditude"
-    //     className="add-text"
-    //     autoComplete="off"
-    //     placeholder="Add a new gratitude"
-    //     value={this.state.graditude}
-    //     onChange={this.onChange}
-    //     onKeyPress={this.handleKeyPress}
-    //   />
-    // </div>
   }
 }
 

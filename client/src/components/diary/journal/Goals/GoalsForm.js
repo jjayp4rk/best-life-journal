@@ -1,17 +1,24 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import classnames from "classnames";
 import { addGoal } from "../../../../redux/actions/journalActions";
-
-import addIcon from "../icon/add.svg";
 
 class GoalsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      goal: ""
+      goal: "",
+      errors: {}
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -43,6 +50,7 @@ class GoalsForm extends Component {
   };
 
   render() {
+    const { errors } = this.state;
     return (
       <div>
         {this.props.goals.length < 3 ? (
@@ -55,8 +63,10 @@ class GoalsForm extends Component {
               type="text"
               name="goal"
               autoComplete="off"
-              className="add-text"
-              placeholder=""
+              className={classnames("add-text", {
+                "add-text add-text-error": errors.text
+              })}
+              placeholder={errors.text ? String(errors.text) : "Add a goal"}
               onChange={this.onChange}
               value={this.state.goal}
               onKeyPress={this.handleKeyPress}
@@ -73,7 +83,7 @@ GoalsForm.propTypes = {
   journalId: PropTypes.string.isRequired
 };
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({ errors: state.errors });
 
 export default connect(
   mapStateToProps,

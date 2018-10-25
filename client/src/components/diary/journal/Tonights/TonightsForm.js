@@ -2,14 +2,25 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addTonight } from "../../../../redux/actions/journalActions";
+import classnames from "classnames";
 
 class TonightsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tonight: ""
+      tonight: "",
+      errors: {}
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors
+      });
+    }
+  }
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -41,6 +52,7 @@ class TonightsForm extends Component {
   };
 
   render() {
+    const { errors } = this.state;
     return (
       <div>
         {this.props.tonights.length < 3 ? (
@@ -52,9 +64,13 @@ class TonightsForm extends Component {
             <input
               type="text"
               name="tonight"
+              className={classnames("add-text", {
+                "add-text add-text-error": errors.text
+              })}
               autoComplete="off"
-              className="add-text"
-              placeholder="Add a new gratitude"
+              placeholder={
+                errors.text ? String(errors.text) : "Add a evening graditude"
+              }
               onChange={this.onChange}
               value={this.state.tonight}
               onKeyPress={this.handleKeyPress}
@@ -71,7 +87,7 @@ TonightsForm.propTypes = {
   journalId: PropTypes.string.isRequired
 };
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({ errors: state.errors });
 
 export default connect(
   mapStateToProps,
